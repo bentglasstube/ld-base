@@ -4,6 +4,8 @@
 
 #include "screen.h"
 
+class Text;
+
 class TitleScreen : public Screen {
   public:
 
@@ -13,4 +15,8 @@ class TitleScreen : public Screen {
 
     Screen* next_screen() { return NULL; }
     std::string get_music_track() { return ""; }
+
+  private:
+
+    boost::scoped_ptr<Text> text;
 };
