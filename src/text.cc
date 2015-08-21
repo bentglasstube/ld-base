@@ -21,7 +21,7 @@ void Text::draw(Graphics& graphics, unsigned int x, unsigned int y, std::string 
     if ((*i) >= 'A' && (*i) <= 'Z') {
       n = (*i) - 'A';
     } else if ((*i) >= 'a' && (*i) <= 'z') {
-      n = (*i) - 'a';
+      n = (*i) - 'a' + 40;
     } else if ((*i) >= '0' && (*i) <= '9') {
       n = (*i) - '0' + 30;
     } else if ((*i) == '.') {
