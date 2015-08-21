@@ -16,6 +16,8 @@ class Input {
     bool key_released(SDL_Keycode key) { return released[key]; }
     bool key_held(SDL_Keycode key) { return held[key]; }
 
+    bool any_pressed() { return pressed.size() > 0; }
+
   private:
 
     std::map<SDL_Keycode, bool> held;
