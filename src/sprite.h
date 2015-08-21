@@ -19,5 +19,5 @@ class Sprite {
 
   private:
 
-    SDL_Texture* texture;
+    std::string file;
 };

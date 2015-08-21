@@ -29,7 +29,7 @@ void Audio::play_music(std::string name) {
   Mix_FadeInMusic(music, 1, FADE_TIME);
 }
 
-Mix_Chunk* Audio::load_chunk(std::string file) {
+Mix_Chunk* Audio::load_chunk(const std::string& file) {
   const std::string path("content/" + file + ".wav");
   if (chunks.count(path) == 0) {
     Mix_Chunk* chunk = Mix_LoadWAV(path.c_str());
@@ -39,7 +39,7 @@ Mix_Chunk* Audio::load_chunk(std::string file) {
   return chunks[path];
 }
 
-Mix_Music* Audio::load_music(std::string file) {
+Mix_Music* Audio::load_music(const std::string& file) {
   const std::string path("content/" + file + ".ogg");
   if (musics.count(path) == 0) {
     Mix_Music* music = Mix_LoadMUS(path.c_str());

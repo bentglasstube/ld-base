@@ -16,6 +16,6 @@ class Backdrop {
 
   private:
 
-    SDL_Texture* texture;
+    std::string file;
 
 };

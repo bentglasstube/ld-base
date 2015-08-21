@@ -25,8 +25,8 @@ class Audio {
 
   private:
 
-    Mix_Chunk* load_chunk(std::string file);
-    Mix_Music* load_music(std::string file);
+    Mix_Chunk* load_chunk(const std::string& file);
+    Mix_Music* load_music(const std::string& file);
 
     typedef std::map<std::string, Mix_Chunk*> ChunkMap;
     typedef std::map<std::string, Mix_Music*> MusicMap;

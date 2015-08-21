@@ -10,7 +10,7 @@ namespace {
 Graphics::Graphics() {
   int flags = SDL_WINDOW_OPENGL | SDL_WINDOW_RESIZABLE | SDL_WINDOW_FULLSCREEN_DESKTOP;
 
-  window = SDL_CreateWindow("Dario DDS", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
+  window = SDL_CreateWindow("Ludum Dare", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, flags);
   renderer = SDL_CreateRenderer(window, -1, 0);
 
   SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "nearest"); // retro!
@@ -26,8 +26,9 @@ Graphics::~Graphics() {
   SDL_DestroyWindow(window);
 }
 
-void Graphics::blit(SDL_Texture* source, SDL_Rect* srect, SDL_Rect* drect) {
-  SDL_RenderCopy(renderer, source, srect, drect);
+void Graphics::blit(const std::string& file, SDL_Rect* srect, SDL_Rect* drect) {
+  SDL_Texture* texture = load_image(file);
+  SDL_RenderCopy(renderer, texture, srect, drect);
 }
 
 void Graphics::flip() {
@@ -39,8 +40,8 @@ void Graphics::clear() {
   SDL_RenderClear(renderer);
 }
 
-SDL_Texture* Graphics::load_image(std::string file, bool transparency) {
-  const std::string path("content/" + file + ".bmp");
+SDL_Texture* Graphics::load_image(const std::string& file, bool transparency) {
+  const std::string path("content/" + file+ ".bmp");
   if (textures.count(path) == 0) {
     SDL_Surface* surface = SDL_LoadBMP(path.c_str());
     if (transparency) {

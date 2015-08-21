@@ -3,7 +3,7 @@
 #include "graphics.h"
 
 Sprite::Sprite(Graphics& graphics, const std::string& file, unsigned int x, unsigned int y, unsigned int w, unsigned int h) {
-  texture = graphics.load_image(file, true);
+  this->file = file;
 
   rect.x = x;
   rect.y = y;
@@ -19,5 +19,5 @@ void Sprite::draw(Graphics& graphics, unsigned int x, unsigned int y) {
   dest.w = rect.w;
   dest.h = rect.h;
 
-  graphics.blit(texture, &rect, &dest);
+  graphics.blit(file, &rect, &dest);
 }

@@ -3,9 +3,9 @@
 #include "graphics.h"
 
 Backdrop::Backdrop(Graphics& graphics, const std::string& file) {
-  texture = graphics.load_image(file);
+  this->file = file;
 }
 
 void Backdrop::draw(Graphics& graphics) {
-  graphics.blit(texture, NULL, NULL);
+  graphics.blit(file, NULL, NULL);
 }

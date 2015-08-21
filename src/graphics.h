@@ -10,11 +10,11 @@ class Graphics {
     Graphics();
     ~Graphics();
 
-    void blit(SDL_Texture* source, SDL_Rect* srect, SDL_Rect* drect);
+    void blit(const std::string& file, SDL_Rect* srect, SDL_Rect* drect);
     void flip();
     void clear();
 
-    SDL_Texture* load_image(std::string file, bool transparency=false);
+    SDL_Texture* load_image(const std::string& file, bool transparency=false);
 
   private:
 
