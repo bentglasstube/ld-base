@@ -2,9 +2,7 @@
 
 #include "graphics.h"
 
-Backdrop::Backdrop(Graphics& graphics, const std::string& file) {
-  this->file = file;
-}
+Backdrop::Backdrop(const std::string& file) : file(file) {}
 
 void Backdrop::draw(Graphics& graphics) {
   graphics.blit(file, NULL, NULL);

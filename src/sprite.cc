@@ -2,9 +2,7 @@
 
 #include "graphics.h"
 
-Sprite::Sprite(Graphics& graphics, const std::string& file, unsigned int x, unsigned int y, unsigned int w, unsigned int h) {
-  this->file = file;
-
+Sprite::Sprite(const std::string& file, unsigned int x, unsigned int y, unsigned int w, unsigned int h) : file(file) {
   rect.x = x;
   rect.y = y;
   rect.w = w;
