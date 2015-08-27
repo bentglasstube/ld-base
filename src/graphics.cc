@@ -26,7 +26,7 @@ Graphics::~Graphics() {
   SDL_DestroyWindow(window);
 }
 
-void Graphics::blit(const std::string& file, SDL_Rect* srect, SDL_Rect* drect) {
+void Graphics::blit(const std::string& file, const SDL_Rect* srect, const SDL_Rect* drect) {
   SDL_Texture* texture = load_image(file);
   SDL_RenderCopy(renderer, texture, srect, drect);
 }

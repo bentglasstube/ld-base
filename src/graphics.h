@@ -10,7 +10,7 @@ class Graphics {
     Graphics();
     ~Graphics();
 
-    void blit(const std::string& file, SDL_Rect* srect, SDL_Rect* drect);
+    void blit(const std::string& file, const SDL_Rect* srect, const SDL_Rect* drect);
     void flip();
     void clear();
 
