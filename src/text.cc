@@ -1,42 +1,40 @@
 #include "text.h"
 
-Text::Text(Graphics &graphics) : Sprite(graphics, "text", 0, 0, 8, 16) {}
+#include "graphics.h"
 
-void Text::draw(Graphics& graphics, unsigned int x, unsigned int y, std::string text, Text::Alignment alignment) {
+Text::Text(const std::string& file) : file(file) {}
+
+void Text::draw(Graphics& graphics, const std::string& text, int x, int y, Text::Alignment alignment) {
+  SDL_Rect source = { 0, 0, 8, 16 };
+  SDL_Rect dest = { x, y, 8, 16 };
+
   switch (alignment) {
-    case Text::LEFT:
+    case LEFT:
       break;
 
-    case Text::CENTER:
-      x -= 4 * text.length();
+    case CENTER:
+      dest.x -= 4 * text.length();
       break;
 
-    case Text::RIGHT:
-      x -= 8 * text.length();
+    case RIGHT:
+      dest.x -= 8 * text.length();
       break;
   }
 
-  for (std::string::iterator i = text.begin(); i != text.end(); ++i) {
-    int n = 29;
-    if ((*i) >= 'A' && (*i) <= 'Z') {
-      n = (*i) - 'A';
-    } else if ((*i) >= 'a' && (*i) <= 'z') {
-      n = (*i) - 'a' + 40;
-    } else if ((*i) >= '0' && (*i) <= '9') {
-      n = (*i) - '0' + 30;
-    } else if ((*i) == '.') {
-      n = 26;
-    } else if ((*i) == '!') {
-      n = 27;
-    } else if ((*i) == '?') {
-      n = 28;
+  for (std::string::const_iterator i = text.begin(); i != text.end(); ++i) {
+    unsigned int n = 0;
+    if ((*i) >= ' ' && (*i) <= '~') n = (*i) - ' ';
+
+    source.x = 8 * (n % 16);
+    source.y = 16 * (n / 16);
+
+    graphics.blit(file, &source, &dest);
+
+    if ((*i) == '\n' && alignment == LEFT) {
+      dest.x = x;
+      dest.y += 16;
+    } else {
+      dest.x += 8;
     }
-
-    rect.x = 8 * (n % 10);
-    rect.y = 16 * (n / 10);
-
-    Sprite::draw(graphics, x, y);
-
-    x += 8;
   }
 }

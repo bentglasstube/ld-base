@@ -6,7 +6,7 @@
 #include "text.h"
 
 void TitleScreen::init(Graphics& graphics) {
-  text.reset(new Text(graphics));
+  text.reset(new Text("text"));
 }
 
 bool TitleScreen::update(Input& input, Audio& audio, Graphics& graphics, unsigned int elapsed) {
@@ -14,5 +14,5 @@ bool TitleScreen::update(Input& input, Audio& audio, Graphics& graphics, unsigne
 }
 
 void TitleScreen::draw(Graphics& graphics) {
-  text->draw(graphics, 320, 232, "Press any key.", Text::CENTER);
+  text->draw(graphics, "Press any key.", 320, 232, Text::CENTER);
 }

@@ -2,17 +2,19 @@
 
 #include <string>
 
-#include "sprite.h"
+class Graphics;
 
-class Text : public Sprite {
-
+class Text {
   public:
 
     enum Alignment { LEFT, CENTER, RIGHT };
 
-    Text(Graphics& graphics);
+    Text(const std::string& file);
 
-    void draw(Graphics& graphics, unsigned int x, unsigned int y, std::string text, Alignment alignment=LEFT);
+    void draw(Graphics& graphics, const std::string& text, int x, int y, Alignment alignment=LEFT);
 
+  private:
+
+    std::string file;
 };
 

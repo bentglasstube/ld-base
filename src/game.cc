@@ -33,7 +33,7 @@ void Game::loop() {
   Audio audio;
   Input input;
 
-  Text text(graphics);
+  Text text("text");
 
   unsigned int last_update = SDL_GetTicks();
   unsigned int last_frame = SDL_GetTicks();
@@ -58,7 +58,7 @@ void Game::loop() {
       float fps = 1000.0f / (SDL_GetTicks() - last_frame);
       last_frame = SDL_GetTicks();
 
-      if (SHOW_FPS) text.draw(graphics, 640, 464, boost::str(boost::format("%.1f FPS") % fps), Text::RIGHT);
+      if (SHOW_FPS) text.draw(graphics, boost::str(boost::format("%.1f FPS") % fps), 640, 464, Text::RIGHT);
 
       graphics.flip();
 
