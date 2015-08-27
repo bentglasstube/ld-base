@@ -49,7 +49,8 @@ void Game::loop() {
 
     if (!screen->process_input(input)) return;
 
-    if (screen->update(input, audio, graphics, SDL_GetTicks() - last_update)) {
+    const unsigned int update = SDL_GetTicks();
+    if (screen->update(input, audio, graphics, update - last_update)) {
 
       graphics.clear();
 
@@ -70,7 +71,7 @@ void Game::loop() {
       audio.stop_music();
     }
 
-    last_update = SDL_GetTicks();
+    last_update = update;
 
     const unsigned int elapsed = SDL_GetTicks() - start;
     if (MSPF > elapsed) SDL_Delay(MSPF - elapsed);
