@@ -12,7 +12,7 @@
 #include "title_screen.h"
 #include "screen.h"
 
-#define SHOW_FPS false
+#define SHOW_FPS true
 
 namespace {
   const unsigned int FPS = 60;
