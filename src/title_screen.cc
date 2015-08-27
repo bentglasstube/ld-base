@@ -5,7 +5,7 @@
 #include "input.h"
 #include "text.h"
 
-void TitleScreen::init(Graphics& graphics) {
+void TitleScreen::init() {
   text.reset(new Text("text"));
 }
 

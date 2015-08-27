@@ -36,7 +36,7 @@ void Game::loop() {
   unsigned int last_update = SDL_GetTicks();
 
   screen.reset(new TitleScreen());
-  screen->init(graphics);
+  screen->init();
 
   while (true) {
     const unsigned int start = SDL_GetTicks();
@@ -62,7 +62,7 @@ void Game::loop() {
 
       screen.reset(screen->next_screen());
       if (!screen) return;
-      screen->init(graphics);
+      screen->init();
 
       audio.stop_music();
     }

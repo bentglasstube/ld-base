@@ -9,7 +9,7 @@ class Text;
 class TitleScreen : public Screen {
   public:
 
-    void init(Graphics& graphics);
+    void init();
     bool update(Input& input, Audio& audio, Graphics& graphics, unsigned int elapsed);
     void draw(Graphics& graphics);
 
