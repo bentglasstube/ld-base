@@ -40,14 +40,12 @@ void Graphics::clear() {
   SDL_RenderClear(renderer);
 }
 
-SDL_Texture* Graphics::load_image(const std::string& file, bool transparency) {
+SDL_Texture* Graphics::load_image(const std::string& file) {
   const std::string path("content/" + file+ ".bmp");
   if (textures.count(path) == 0) {
     SDL_Surface* surface = SDL_LoadBMP(path.c_str());
-    if (transparency) {
-      const Uint32 black = SDL_MapRGB(surface->format, 0, 0, 0);
-      SDL_SetColorKey(surface, SDL_TRUE, black);
-    }
+    const Uint32 black = SDL_MapRGB(surface->format, 0, 0, 0);
+    SDL_SetColorKey(surface, SDL_TRUE, black);
 
     textures[path] = SDL_CreateTextureFromSurface(renderer, surface);
   }

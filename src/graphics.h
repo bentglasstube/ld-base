@@ -14,7 +14,7 @@ class Graphics {
     void flip();
     void clear();
 
-    SDL_Texture* load_image(const std::string& file, bool transparency=false);
+    SDL_Texture* load_image(const std::string& file);
 
   private:
 
