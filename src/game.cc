@@ -41,7 +41,7 @@ void Game::loop() {
   while (true) {
     const unsigned int start = SDL_GetTicks();
 
-    if (Mix_PlayingMusic() == 0) audio.play_music(screen->get_music_track());
+    if (!audio.music_playing()) audio.play_music(screen->get_music_track());
     if (!screen->process_input(input)) return;
 
     const unsigned int update = SDL_GetTicks();
