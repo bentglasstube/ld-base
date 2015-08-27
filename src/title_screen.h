@@ -3,6 +3,7 @@
 #include <boost/scoped_ptr.hpp>
 
 #include "screen.h"
+#include "sprite.h"
 
 class Text;
 
@@ -19,4 +20,5 @@ class TitleScreen : public Screen {
   private:
 
     boost::scoped_ptr<Text> text;
+    boost::scoped_ptr<Sprite> blob, heart;
 };
