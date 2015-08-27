@@ -19,12 +19,12 @@ Audio::~Audio() {
   Mix_CloseAudio();
 }
 
-void Audio::play_sample(std::string name) {
+void Audio::play_sample(const std::string& name) {
   Mix_Chunk* chunk = load_chunk(name);
   Mix_PlayChannel(-1, chunk, 0);
 }
 
-void Audio::play_music(std::string name) {
+void Audio::play_music(const std::string& name) {
   Mix_Music* music = load_music(name);
   Mix_FadeInMusic(music, 1, FADE_TIME);
 }

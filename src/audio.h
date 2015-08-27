@@ -13,13 +13,13 @@ class Audio {
     Audio();
     ~Audio();
 
-    void play_sample(std::string name);
+    void play_sample(const std::string& name);
     void sfx_volume(int volume) { Mix_Volume(-1, MIX_MAX_VOLUME * volume / 10); }
 
     void pause() { Mix_Pause(-1); }
     void resume() { Mix_Resume(-1); }
 
-    void play_music(std::string name);
+    void play_music(const std::string& name);
     void stop_music() { Mix_FadeOutMusic(FADE_TIME); }
     void music_volume(int volume) { Mix_VolumeMusic(MIX_MAX_VOLUME * volume / 10); }
 
