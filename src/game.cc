@@ -10,11 +10,9 @@
 #include "input.h"
 #include "text.h"
 #include "title_screen.h"
-#include "screen.h"
-
-#define SHOW_FPS true
 
 namespace {
+  const bool SHOW_FPS = true;
   const unsigned int FPS = 60;
   const unsigned int MSPF = 1000 / FPS;
 }
@@ -36,7 +34,6 @@ void Game::loop() {
   Text text("text");
 
   unsigned int last_update = SDL_GetTicks();
-  unsigned int last_frame = SDL_GetTicks();
 
   screen.reset(new TitleScreen());
   screen->init(graphics);
@@ -44,21 +41,20 @@ void Game::loop() {
   while (true) {
     const unsigned int start = SDL_GetTicks();
 
-    // Start music if it's not playing
     if (Mix_PlayingMusic() == 0) audio.play_music(screen->get_music_track());
-
     if (!screen->process_input(input)) return;
 
     const unsigned int update = SDL_GetTicks();
-    if (screen->update(input, audio, graphics, update - last_update)) {
+    const unsigned int frame_ticks = update - last_update;
+    if (screen->update(input, audio, graphics, frame_ticks)) {
 
       graphics.clear();
-
       screen->draw(graphics);
-      float fps = 1000.0f / (SDL_GetTicks() - last_frame);
-      last_frame = SDL_GetTicks();
 
-      if (SHOW_FPS) text.draw(graphics, boost::str(boost::format("%.1f FPS") % fps), 640, 464, Text::RIGHT);
+      if (SHOW_FPS) {
+        const float fps = 1000.0f / frame_ticks;
+        text.draw(graphics, boost::str(boost::format("%.1f") % fps), 640, 464, Text::RIGHT);
+      }
 
       graphics.flip();
 
