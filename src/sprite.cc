@@ -2,14 +2,14 @@
 
 #include "graphics.h"
 
-Sprite::Sprite(const std::string& file, unsigned int x, unsigned int y, unsigned int w, unsigned int h) : file(file) {
+Sprite::Sprite(const std::string& file, int x, int y, int w, int h) : file(file) {
   rect.x = x;
   rect.y = y;
   rect.w = w;
   rect.h = h;
 }
 
-void Sprite::draw(Graphics& graphics, unsigned int x, unsigned int y) {
+void Sprite::draw(Graphics& graphics, int x, int y) {
   SDL_Rect dest;
 
   dest.x = x;

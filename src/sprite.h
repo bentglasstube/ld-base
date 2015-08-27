@@ -8,9 +8,9 @@ class Graphics;
 class Sprite {
   public:
 
-    Sprite(const std::string& file, unsigned int x, unsigned int y, unsigned int w, unsigned int h);
+    Sprite(const std::string& file, int x, int y, int w, int h);
 
-    virtual void draw(Graphics& graphics, unsigned int x, unsigned int y);
+    virtual void draw(Graphics& graphics, int x, int y);
 
   private:
 
