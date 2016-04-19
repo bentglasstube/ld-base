@@ -1,6 +1,6 @@
 #pragma once
 
-#include <boost/scoped_ptr.hpp>
+#include <memory>
 
 #include "screen.h"
 #include "sprite.h"
@@ -19,6 +19,6 @@ class TitleScreen : public Screen {
 
   private:
 
-    boost::scoped_ptr<Text> text;
-    boost::scoped_ptr<Sprite> blob, heart;
+    std::unique_ptr<Text> text;
+    std::unique_ptr<Sprite> blob, heart;
 };

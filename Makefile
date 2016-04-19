@@ -7,11 +7,12 @@ OBJECTS=$(patsubst %.cc,$(BUILDDIR)/%.o,$(SOURCES))
 NAME=base
 APP_NAME="LD Base"
 
-CFLAGS=-g --std=c++14 -Wall -Wextra -Werror -pedantic
+CC=clang++
+CFLAGS=-O3 --std=c++14 -Wall -Wextra -Werror -pedantic
 
 ifeq ($(UNAME), Linux)
 	PACKAGE=$(NAME)-linux.tgz
-	LDFLAGS=-static-libstdc++ -static-libgcc
+	#LDFLAGS=-static-libstdc++ -static-libgcc
 	LDLIBS=`sdl2-config --cflags --libs` -lSDL2_mixer
 endif
 ifeq ($(UNAME), Darwin)
