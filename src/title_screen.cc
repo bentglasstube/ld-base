@@ -12,7 +12,7 @@ void TitleScreen::init() {
   heart.reset(new Sprite("sprites", 0, 16, 16, 16));
 }
 
-bool TitleScreen::update(Input& input, Audio& audio, Graphics& graphics, unsigned int elapsed) {
+bool TitleScreen::update(Input& input, Audio&, Graphics&, unsigned int) {
   return !input.any_pressed();
 }
 
