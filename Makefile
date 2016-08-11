@@ -12,7 +12,7 @@ CFLAGS=-O3 --std=c++14 -Wall -Wextra -Werror -pedantic
 
 ifeq ($(UNAME), Linux)
 	PACKAGE=$(NAME)-linux.tgz
-	#LDFLAGS=-static-libstdc++ -static-libgcc
+	LDFLAGS=-static-libstdc++ -static-libgcc
 	LDLIBS=`sdl2-config --cflags --libs` -lSDL2_mixer
 endif
 ifeq ($(UNAME), Darwin)
