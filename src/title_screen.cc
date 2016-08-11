@@ -4,7 +4,6 @@
 #include "audio.h"
 #include "graphics.h"
 #include "input.h"
-#include "text.h"
 
 void TitleScreen::init() {
   text.reset(new Text("text"));

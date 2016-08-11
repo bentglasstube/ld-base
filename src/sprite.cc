@@ -1,7 +1,5 @@
 #include "sprite.h"
 
-#include "graphics.h"
-
 Sprite::Sprite(const std::string& file, int x, int y, int w, int h) : file(file) {
   rect.x = x;
   rect.y = y;

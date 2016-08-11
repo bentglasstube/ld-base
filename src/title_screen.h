@@ -4,8 +4,7 @@
 
 #include "screen.h"
 #include "sprite.h"
-
-class Text;
+#include "text.h"
 
 class TitleScreen : public Screen {
   public:

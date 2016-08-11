@@ -3,7 +3,7 @@
 #include <SDL2/SDL.h>
 #include <string>
 
-class Graphics;
+#include "graphics.h"
 
 class Sprite {
   public:

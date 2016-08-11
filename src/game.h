@@ -2,8 +2,8 @@
 
 #include <memory>
 
-class Screen;
-class Graphics;
+#include "graphics.h"
+#include "screen.h"
 
 class Game {
   public:
